@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Assignment">
+    <title>LMT - Library Management Tool</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="static/css/bootstrap2.min.css" rel="stylesheet">
+    <link href="static/css/app.css" rel="stylesheet">
+    <link href="static/css/creative.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="static/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="static/css/sweet-alert.css" rel="stylesheet" type="text/css">
+
+    {% block header %}{% endblock %}
+</head>
+<body style="background-color:#FBEEC1;"><!--#061826-->
+     <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">LM Tool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home
+                <!--<span class="sr-only">(current)</span>-->
+              </a>
+            </li>
+            {% if user_name %}
+                <li class="nav-item"><a class="nav-link" href="/sign_out">Sign Out</a></li>
+                <li class='nav-item'>
+                    <a class="nav-link" href="#"><b><i> Hello {{ user_name }}! </i></b></a></li>
+            {% else %}
+                <li class="nav-item"><a class="nav-link" href="/sign_in">Sign In</a></li>
+            {% endif %}
+            <!--<li class="nav-item">-->
+              <!--<a class="nav-link" href="#">About {{ user_name }}</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item">-->
+              <!--<a class="nav-link" href="#">Services</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item">-->
+              <!--<a class="nav-link" href="#">Contact</a>-->
+            <!--</li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+{% block body_content %} {% endblock %}
+{% block footer %} {% endblock %}
+
+<script src="static/js/sweet-alert.js"></script>
+<script src="static/js/jquery-1.12.4.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery-ui-1.12.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+<script>
+    WebFont.load({
+      google: {
+        families: ["Cookie:regular"]
+      }
+    });
+</script>
+{% block script_tag %} {% endblock %}
+</body>
+</html>

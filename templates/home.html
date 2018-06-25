@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Assignment">
+    <title>LMT - Library Management Tool</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/app.css" rel="stylesheet">
+    <link href="static/css/creative.min.css" rel="stylesheet">
+    <link href="static/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+    body {
+    background-image: url(./static/images/Library-management-system.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;}
+    </style>
+</head>
+<body style="background-color:#FBEEC1;"><!--#061826-->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top"
+         style="background-color:rgba(255,255,255,0.5)">
+        <div class="container-fluid" >
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top" >
+                    <span>LM Tool</span></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="page-scroll" href="#view_books">View/Issue Books</a></li>
+                    <li><a class="page-scroll" href="#about_us">About us</a></li>
+                    {% if user_name %}
+                        <li><a class="page-scroll" href="/sign_out">Sign Out</a></li>
+                        <li class='page-scroll active' style="margin-top:15px;">
+                            <b><i> Hello {{ user_name }}! </i></b></li>
+                    {% else %}
+                        <li><a class="page-scroll" href="#sign_in">Sign In</a></li>
+                    {% endif %}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+
+    </nav>
+
+    <header id="page-top">
+        <div class="header-content">
+            <div class="header-content-inner pull-left" style="padding-left:80px;padding-top:200px;">
+                <h2 style="color:black; font-family:'Open Sans'; font-size:36px;"><b>
+                    <img src="static/images/logo.png" width="40%" height="40%" /><br />Library Management Tool</b></h2>
+                <hr>
+                {% if user_name %}
+                <a id="more1" class="btn btn-info btn-xl page-scroll" href="/sign_in"
+                   style="display:none;color:#FFF;font-family:'Roboto';font-size:16px;line-height:24px;text-align:left;">
+                    Login Now</a>
+                {% else %}
+                <a id="more2" class="btn btn-info btn-xl page-scroll" href="/sign_up_form"
+                   style="color:#FFF;font-family:'Roboto';font-size:16px;line-height:24px;text-align:left;">
+                    Register Now</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <section id="sign_in" class="col-md-12 col-xs-12 col-lg-12 col-sm-12"
+             style="min-height:100vh; padding:50px 0px;">
+        <div class="container col-md-12 col-xs-12 col-sm-12 col-lg-12" style="padding:0px;">
+            <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6 col-sm-12 col-xs-12" style="background-color:white;">
+                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 text-center">
+                    <h2 style="color:black; font-family:'Open Sans'; font-size:36px;"><b>Sign In!</b><br/> </br></h2>
+                </div>
+                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                    <p style="color:#2d2d2a; font-family:'Roboto Light'; font-size:16px; line-height:24px;">
+                        There are more than <b>121,000</b> public libraries across the India.
+                            A growing demand for books and e-books readers at public libraries are changing trends
+                            in how people access books. However, libraries have limited access to these resources due
+                            to publishers. To increase awareness here's an online platform for library.</p>
+                </div>
+            </div>
+            <div class="col-md-offset-1 col-lg-offset-1 col-lg-10 col-md-10 col-xs-12 col-sm-12">
+                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                    <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" align="right" style="padding-top:65px;padding-right:20px;">
+                        <a href="/sign_in" class="btn btn-info" style="color:#FFF; font-family:'Roboto'; font-size:16px; line-height:24px; text-align:left;">Click to Sign_in</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12" align="center">
+                   <b><marquee behavior="scroll" direction="up" style="padding-top:20px;height:200px;text-align:left;font-family:Monotype Corsiva, Times, Serif;">
+                        Keys to the past… Gateway to the future.<br/><br/>
+                        A citizen’s door to lifelong learning.<br/><br/>
+                        Books are just the beginning.<br/><br/>
+                        Books can be dangerous, the best ones should be labeled, “This could change your life.”<br/><br/>
+                        Connects – people to people, people to place, people to learning.<br/><br/>
+                        Cutting libraries in a recession is like cutting hospitals in a plague.<br/><br/>
+                        Discover the possibilities.<br/><br/>
+                        Discover. Connect. Inspire.<br/><br/>
+                        Don’t judge a book by its cover.<br/><br/>
+                        Educate – captivate – connect.<br/><br/>
+                        Enrich your life.<br/><br/>
+                        Everything you’re into.<br/><br/>
+                        Explore the world’s knowledge.<br/><br/>
+                        Explore today, discover tomorrow.<br/><br/>
+                        Far more than you expect.<br/><br/>
+                        Get on board and read at your library.<br/><br/>
+                        Go anywhere. Learn anything. Read every day.<br/><br/>
+                        How about a date with a good book.<br/><br/>
+                        Imagine. Discover. Connect.<br/><br/>
+                        Innovative lifelong learning.<br/><br/>
+                        Keys to the past… Gateway to the future.<br/><br/>
+                        My library, my lifeline.<br/><br/>
+                        Open your world.<br/><br/>
+                        Opening the door to knowledge.<br/><br/>
+                        Preserving the past, opening the future.<br/><br/>
+                        Read, learn, discover.<br/><br/>
+                        So much to see. So much to do.<br/><br/>
+                        Spread the words.<br/><br/>
+                        Take your dreams off the shelf.<br/><br/>
+                        The heart of town.<br/><br/>
+                        The whole is greater…<br/><br/>
+                        We are all on the same page.<br/><br/>
+                        Worlds of information and imagination.<br/><br/>
+                        Your guide to answers.<br/><br/>
+                        Your link to the past & gateway to the future.<br/><br/>
+                   </marquee></b>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="about_us"  class="col-md-12 col-xs-12 col-lg-12 col-sm-12"
+             style="background:url(./static/images/logo.png);min-height:100vh; padding:50px 0px;">
+        <div class="container col-md-12 col-xs-12 col-sm-12 col-lg-12" style="padding:0px;text-align:center;" align="center">
+            <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6 col-sm-12 col-xs-12" style="background-color:white;">
+                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 text-center">
+                    <h2 style="color:black; font-family:'Open Sans'; font-size:36px;"><b>How we can help</b><br/> </br></h2>
+                </div>
+                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" >
+                    <p style="color:black; font-family:'Roboto Light'; font-size:16px; line-height:24px;">
+                        Books are just the beginning.</p>
+                    <p style="color:black; font-family:'Roboto Light'; font-size:16px; line-height:24px;">
+                        Our dedicated staff can help you to find what you need,
+                        access primary research material, and develop your study and research skills.</p>
+                    <p style="color:black; font-family:'Roboto Light'; font-size:16px; line-height:24px;">
+                        There's never been a better time for those who love to read.</p>
+                    <p style="color:black; font-family:'Roboto Light'; font-size:16px; line-height:24px;">
+                        Register & get easy access to library insight in smarter way Now!</p>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" style="padding-top:65px;padding-right:20px;">
+                    <a href="/sign_up_form" class="btn btn-info"
+                       style="color:#FFF; font-family:'Roboto'; font-size:16px; line-height:24px; text-align:center;">
+                        Click To Register With Us!</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section id="view_books" class="col-md-12 col-xs-12 col-lg-12 col-sm-12"
+             style="min-height:100vh; padding:50px 0px;">
+        <div class="container col-md-12 col-xs-12 col-sm-12 col-lg-12" style="padding:0px;text-align:center;" align="center">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 text-center">
+                    <h2 style="color:black; font-family:'Open Sans'; font-size:36px;"><b>View/Issue books with us!</b><br/> </br></h2>
+            </div>
+            <!--<marquee behavior="scroll" direction="left">-->
+                <img src="static/images/0a01d83d48898ab5c6714fc4b8476806.jpg" width="170" height="120" alt="Natural" />
+                <img src="static/images/3008001862_5e3a9ae921_z.jpg" width="170" height="120" alt="Natural" />
+                <img src="static/images/books-library-students-12064.jpg" width="170" height="120" alt="Natural" />
+                <img src="static/images/Custom-Photo-Wallpaper-3D-European-Style-Retro-Sofa-TV-Background-Wallpaper-Mural-Wall-Bookcase-Books-Bookshelf.jpg_640x640.jpg" width="170" height="120" alt="Natural" />
+                <img src="static/images/Library-interior-HD-wallpaper.jpg" width="170" height="120" alt="Natural" />
+                <img src="static/images/library-management.jpg.png" width="170" height="120" alt="Natural" />
+                <img src="static/images/top-16-leadership-books-for-chief-learning-officers-2015.jpg" width="170" height="120" alt="Natural" />
+                <!--<img src="static/images/0a01d83d48898ab5c6714fc4b8476806.jpg" width="170" height="120" alt="Natural" />-->
+                <!--<img src="static/images/3008001862_5e3a9ae921_z.jpg" width="170" height="120" alt="Natural" />-->
+                <!--<img src="static/images/books-library-students-12064.jpg" width="170" height="120" alt="Natural" />-->
+                <!--<img src="static/images/Custom-Photo-Wallpaper-3D-European-Style-Retro-Sofa-TV-Background-Wallpaper-Mural-Wall-Bookcase-Books-Bookshelf.jpg_640x640.jpg" width="170" height="120" alt="Natural" />-->
+                <!--<img src="static/images/Library-interior-HD-wallpaper.jpg" width="170" height="120" alt="Natural" />-->
+                <!--<img src="static/images/library-management.jpg.png" width="170" height="120" alt="Natural" />-->
+                <!--<img src="static/images/top-16-leadership-books-for-chief-learning-officers-2015.jpg" width="170" height="120" alt="Natural" />-->
+            <!--</marquee>-->
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="margin-top:30px;">
+                <p style="color:black; font-family:'Roboto Light'; font-size:16px; line-height:24px;">
+                    A <b>book</b> is a series of pages assembled for easy portability and reading,
+                    as well as the composition contained in it. </p>
+                <p style="color:black; font-family:'Roboto Light'; font-size:16px; line-height:24px;">
+                    The book's most common modern form is that of a codex volume consisting of
+                    rectangular paper pages bound on one side, with a heavier cover and spine, so that
+                    it can fan open for reading. </p>
+                <p style="color:black; font-family:'Roboto Light'; font-size:16px; line-height:24px;">
+                    Books have taken other forms, such as scrolls, leaves on a string, or strips
+                tied together; and the pages have been of parchment, vellum, papyrus, bamboo slips, palm leaves,
+                silk, wood, and other materials.</p>
+            </div>
+
+
+            <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12"
+                     style="padding-top:50px;padding-right:20px;">
+                    <a href="/view_books" class="btn btn-info"
+                       style="color:#FFF; font-family:'Roboto'; font-size:16px; line-height:24px; text-align:center;">
+                        Click To View/Issue Books!</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script src="static/js/jquery-1.12.4.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery-ui-1.12.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+        WebFont.load({
+          google: {
+            families: ["Cookie:regular"]
+          }
+        });
+    </script>
+</body>
+</html>
